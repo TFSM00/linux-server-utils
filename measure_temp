@@ -1,0 +1,6 @@
+#!/usr/bin/python3
+# Use case: Kali Linux distro for Raspberry Pi
+import subprocess
+temp_command = subprocess.run(['cat', '/sys/class/thermal/thermal_zone0/temp'], capture_output = True).stdout
+temp = temp_command.strip().decode('utf-8')
+print(f"{temp[:2]}.{temp[2:]} °C")
